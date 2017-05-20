@@ -13,7 +13,7 @@ We gaan in dit college laravel gebruiken om een website te maken, als je geen er
 - git (voor het clonen van de repo)
 
 > **Weet je niet zeker of je dit hebt:**
-> ```
+> ``` bash
 > # Voor composer
 > composer -V
 > # Voor node.js
