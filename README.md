@@ -14,10 +14,10 @@ We gaan in dit college laravel gebruiken om een website te maken, als je geen er
 
 > **Weet je niet zeker of je dit hebt:**
 > ```
-> // Voor composer
+> # Voor composer
 > composer -V
-> // Voor node.js
+> # Voor node.js
 > node -v
-> // Voor git
+> # Voor git
 > git -- version
 >
