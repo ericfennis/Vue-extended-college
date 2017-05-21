@@ -47,7 +47,7 @@ Als het goed is word er een server gestart op **localhost:8000** of **127.0.0.1:
 
 ## Mappenstructuur
 ``` bash
-public 
+public
 ├── css
 │   └── app.css   #(Dit is het gecompileerde css bestand)
 ├── js
@@ -79,11 +79,11 @@ Dat klopt want we moeten de Asset Builder nog runnen (webpack).
 In Package.json staan 5 scripts gedefineerd:
 ``` json
 "scripts": {
- "dev": "node node_modules/...,
- "watch": "node node_modules/...,
- "watch-poll": "node...,
- "hot": "node node_modules/...,
- "production": "node node_modules/...,
+ "dev": "node node_modules/...",
+ "watch": "node node_modules/...",
+ "watch-poll": "node...",
+ "hot": "node node_modules/...",
+ "production": "node node_modules/...",
 },
 ```
 De drie belangrijkste om te weten zijn:
@@ -96,7 +96,7 @@ Wij gebruiken nu even dit command:
 npm run watch
 ```
 Als je dan gaat checken in de browser zie je als het goed is staan:
-``` 
+```
 This Vue is working
 ```
 Nu mag je  `template: '<h3>This Vue is working</h3>'` weer weghalen uit app.js want we gaan een custom element maken.
@@ -110,8 +110,21 @@ Dan in app.js mag je “Example” veranderen naar je naam van je custom element
 ``` js
 Vue.component('VueHeader', require('./components/VueHeader.vue'));
 ```
-*Als je niks ziet, even `template: '<h3>This Vue is working</h3>'` weghalen.* 
+*Als je niks ziet, even `template: '<h3>This Vue is working</h3>'` weghalen.*
 
+We voegen ook nog even wat html toe in de template:
+``` html
+<header>
+   <nav class="navbar navbar-default navbar-static-top">
+
+              <div class="container">
+                 <a href="/" class="navbar-brand">BIERKOERIER</a>
+              </div>
+
+        </div>
+   </nav>
+</header>
+```
 Als laatste moeten we onze custom element nog plaatsen in html.
 ``` html
 <div id="app">
