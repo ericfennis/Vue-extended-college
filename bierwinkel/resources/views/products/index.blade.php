@@ -16,7 +16,7 @@
 			<th>#</th>
 			<th>Naam</th>
 			<th>Beschrijving</th>
-			<th>Status</th>
+			<th>Acties</th>
 		</tr>
 		@foreach ($products as $product)
 		<tr>
@@ -24,12 +24,13 @@
 			<td>{{ $product->name }}</td>
 			<td>{{ $product->description }}</td>
 			<td>
-				@if($product->status == 0)
-				<span>Niet beschikbaar</span>
-				@else
-				<span>Beschikbaar</span>
-				@endif
-			</td>
+	          <a href="{{route('edit-product', ['id' => $product->id]) }}" class="btn btn-primary">
+	              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> edit
+	          </a>
+	          <a href="{{route('delete-product', ['id' => $product->id]) }}" class="btn btn-danger">
+	              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> delete
+	          </a>
+         </td>
 		</tr>
 		@endforeach
 	</table>
