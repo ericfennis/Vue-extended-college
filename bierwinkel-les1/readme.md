@@ -1,40 +1,121 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Getting started
+Bij deze college gaan we vue niet gebruiken door vue.js toe te voegen als een javascript bestandje aan html bestand. Maar gaan we vue-cli gebruiken. CLI staat voor Command Line Interface. Dus we gaan Node.js gebruiken om vue te compilen naar javascript, het voordeel hiervan is dat we Objectgeoriënteerd te werk kunnen gaan en javascript kunnen laten compile naar 1 javascript bestand. Als je meer wil weten, na college vragen.
+Het compilen doen we met Webpack
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+We gaan in dit college laravel gebruiken om een website te maken, als je geen ervaring hebt met laravel dan maakt het niet uit want we gaan voornamelijk gewoon met vue bezig, maar we gebruiken laravel als server. Daarnaast heeft laravel vue-cli en webpack ingebouwd.
 
-## About Laravel
+## Wat hebben we nodig
+- composer
+- node.js
+- git (voor het clonen van de repo)
+- php (voor laravel)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+> **Weet je niet zeker of je dit hebt:**
+> ``` bash
+> # Voor composer
+> composer -V
+> # Voor node.js
+> node -v
+> # Voor git
+> git -- version
+> ```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Clonen
+Cloon deze repo in je gewenste map. Deze repo is een fork van het laravel project van vorig jaar.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+https://github.com/ericfennis/vue-extended-college/tree/master/bierwinkel
 
-## Learning Laravel
+*Voor de mensen die vorig jaar Laravel college van Tjerk en marijn hebben gevolgd ik zou niet het oude project erbij pakken want de versies kloppen dan niet meer. Ik heb deze geupdate naar de nieuwste versie van laravel.*
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+## Server werken krijgen
+Laten we eerst zorgen dat we de server werkend hebben en dat we alle packages gedownload hebben om te kunnen beginnen met programmeren.
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+Pak je favoriete terminal erbij en run dit:
+``` bash
+composer update
+```
+En dan dit:
+``` bash
+npm install
+```
 
-## Contributing
+Start dan de server:
+``` bash
+php artisan serve
+```
+Als het goed is word er een server gestart op **localhost:8000** of **127.0.0.1:8000** en zie je “hoi”.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+## Mappenstructuur
+``` bash
+public 
+├── css
+│   └── app.css   (Dit is het gecompileerde css bestand)
+├── js
+│   └── app.js  (Dit is het gecompileerde javascript bestand)
+resources
+├── assets
+│   ├── js
+│   │   ├── app.js     (Hier schrijf je je javascript code in)
+│   │   ├── bootstrap.js    (Hier staan de packages gedefineerd)
+│   │   └── components  (Map voor je components)
+│   │       └── Example.vue
+│   └── sass
+│       ├── app.scss  (Hier schrijf je je css/sass code in)
+│       └── _variables.scss
 
-## Security Vulnerabilities
+```
+## Beginnen met Vue
+In app.js zie je het bekende stukje code waarmee vue aangeroepen word. Hierin mag je het volgende inzetten onder “el: #app” :
+``` js
+template: '<h3>This Vue is working</h3>'
+```
+In welcome.blade.php mag je “Hoi” weghalen en een divje aanmaken met id: app.
+``` html
+<div id="app"></div>
+```
+Als je dan naar localhost:8000 gaat dan zie je ……… Niks.
+Dat klopt want we moeten de Asset Builder nog runnen (webpack).
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+In Package.json staan 5 scripts gedefineerd:
+``` json
+"scripts": {
+ "dev": "node node_modules/...
+ "watch": "node node_modules/...
+ "watch-poll": "node...
+ "hot": "node node_modules/...
+ "production": "node node_modules/...
+},
+```
+De drie belangrijkste om te weten zijn:
+- **dev**,  eenmalig compilen in een development omgeving
+- **watch**, start een watch functie, en compiled altijd wanneer je een js,css bestand wijzigt.
+- **production**, Compiled bestanden voor een productie omgeving. Dus wanneer je klaar bent met het ontwikkelen van je website run je dit script. Dit compressed alle bestanden voor optimale laad tijden.
 
-## License
+Wij gebruiken nu even dit command:
+``` bash
+npm run watch
+```
+Als je dan gaat checken in de browser zie je als het goed is staan:
+``` 
+This Vue is working
+```
+Nu mag je  `template: '<h3>This Vue is working</h3>'` weer weghalen uit app.js want we gaan een custom element maken.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Custom elements (single file components)
+We gaan nu een custom element aanmaken. Onder het mapje components zien we al een bestandje voor ons aangemaakt: example.vue. Deze mag je dupliceren en een naam geven.
+Ik geef hem de naam: `VueHeader.vue`
+Belangrijk is dat je naam naam niet gaat benoemen naar een bestaande HTML Element, dit mag namelijk **niet.**
+
+Dan in app.js mag je “Example” veranderen naar je naam van je custom element.
+``` js
+Vue.component('VueHeader', require('./components/VueHeader.vue'));
+```
+*Als je niks ziet, even `template: '<h3>This Vue is working</h3>'` weghalen.* 
+
+Als laatste moeten we onze custom element nog plaatsen in html.
+``` html
+<div id="app">
+   <vue-header></vue-header>
+</div>
+```
+**Let op:** In html mag je geen gebruik maken van hoofdletters, dus moet het in kleine letters. Vue kan camelCase, PascalCase en veel manier van variables lezen. Er moet nog wel een streepje tussen anders zie vue het als 1 woord.
