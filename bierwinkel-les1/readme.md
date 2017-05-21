@@ -49,18 +49,18 @@ Als het goed is word er een server gestart op **localhost:8000** of **127.0.0.1:
 ``` bash
 public 
 ├── css
-│   └── app.css   (Dit is het gecompileerde css bestand)
+│   └── app.css   #(Dit is het gecompileerde css bestand)
 ├── js
-│   └── app.js  (Dit is het gecompileerde javascript bestand)
+│   └── app.js  #(Dit is het gecompileerde javascript bestand)
 resources
 ├── assets
 │   ├── js
-│   │   ├── app.js     (Hier schrijf je je javascript code in)
-│   │   ├── bootstrap.js    (Hier staan de packages gedefineerd)
-│   │   └── components  (Map voor je components)
+│   │   ├── app.js     #(Hier schrijf je je javascript code in)
+│   │   ├── bootstrap.js    #(Hier staan de packages gedefineerd)
+│   │   └── components  #(Map voor je components)
 │   │       └── Example.vue
 │   └── sass
-│       ├── app.scss  (Hier schrijf je je css/sass code in)
+│       ├── app.scss  #(Hier schrijf je je css/sass code in)
 │       └── _variables.scss
 
 ```
@@ -79,11 +79,11 @@ Dat klopt want we moeten de Asset Builder nog runnen (webpack).
 In Package.json staan 5 scripts gedefineerd:
 ``` json
 "scripts": {
- "dev": "node node_modules/...
- "watch": "node node_modules/...
- "watch-poll": "node...
- "hot": "node node_modules/...
- "production": "node node_modules/...
+ "dev": "node node_modules/...,
+ "watch": "node node_modules/...,
+ "watch-poll": "node...,
+ "hot": "node node_modules/...,
+ "production": "node node_modules/...,
 },
 ```
 De drie belangrijkste om te weten zijn:
