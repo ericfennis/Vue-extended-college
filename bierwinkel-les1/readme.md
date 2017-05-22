@@ -23,7 +23,7 @@ We gaan in dit college laravel gebruiken om een website te maken, als je geen er
 ## Clonen
 Cloon deze repo in je gewenste map. Deze repo is een fork van het laravel project van vorig jaar.
 
-https://github.com/ericfennis/vue-extended-college/tree/master/bierwinkel
+https://github.com/ericfennis/bierwinkel
 
 *Voor de mensen die vorig jaar Laravel college van Tjerk en marijn hebben gevolgd ik zou niet het oude project erbij pakken want de versies kloppen dan niet meer. Ik heb deze geupdate naar de nieuwste versie van laravel.*
 
