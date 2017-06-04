@@ -7,6 +7,20 @@
 
 require('./bootstrap');
 
+//import vue router
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
+import routes from './routes';
+
+const router = new VueRouter({
+   routes
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
+})
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -20,4 +34,5 @@ Vue.component('Home', require('./pages/Home.vue'));
 
 const app = new Vue({
     el: '#app',
+    router
 });

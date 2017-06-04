@@ -3,7 +3,7 @@
 
 <div id="app">
    <vue-header></vue-header>
-   <home></home>
+   <router-view></router-view>
 </div>
 
 @endsection

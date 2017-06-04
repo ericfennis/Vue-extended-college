@@ -3,7 +3,8 @@
   <nav class="navbar navbar-default navbar-static-top">
 
              <div class="container">
-                <a href="/" class="navbar-brand">BIERWINKEL</a>
+                <router-link to="/" class="navbar-brand">BIERWINKEL</router-link>
+                <router-link to="/cart" class="navbar-right navbar-text">Winkelbierkrat</router-link>
              </div>
   </nav>
 </header>
