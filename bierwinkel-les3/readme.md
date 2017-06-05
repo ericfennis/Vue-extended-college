@@ -1,4 +1,4 @@
-# Vue extended college Part 2
+# Vue extended college Part 3
 
 In deze les gaan we dit doen:Router toevoegen
 - Router toevoegen
