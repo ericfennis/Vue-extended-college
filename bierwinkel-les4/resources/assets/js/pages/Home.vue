@@ -19,6 +19,7 @@
                <div class="product-body thumbnail">
                   <div class="product-name caption">{{ product.name }}</div>
                   <div class="product-price">&euro;{{ product.price }}</div>
+                  <button class="btn btn-primary product-button" type="button" @click="addToCart(product)">In winkelwagen</button>
                </div>
             </div>
            </div>
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+   import cart from '../store/cart.js';
     export default {
       data() {
          return {
@@ -71,7 +73,31 @@
         methods: {
            getProducts() {
             axios.get('/api/products').then(response => this.products = response.data);
-          }
+         },
+         addToCart(product) {
+            var   products = cart.state.products;
+            var    foundProduct = false;
+            //Doorzoek alle producten in winkelwagen
+            for (var i = 0; i < products.length; i++) {
+               // als product ID gelijk is aan toegevoegde product ID, voeg nieuwe toe.
+               if(products[i].id === product.id) {
+                  var newProduct = products[i];
+                  // totaal aantal van dat product +1
+                  newProduct.quantity++;
+                  cart.state.itemTotal++;
+                  // werk de winkelwagen bij
+                  cart.setProduct([i], newProduct);
+                  //Als product gevonden wordt, stop de rest van de functie
+                  foundProduct = true;
+                  break;
+               }
+            }
+            if(!foundProduct) {
+              product.quantity = 1;
+              cart.state.itemTotal++;
+              cart.addProduct(product);
+            }
+         }
         }
     }
 </script>

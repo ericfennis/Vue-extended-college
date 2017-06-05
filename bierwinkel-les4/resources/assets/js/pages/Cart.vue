@@ -1,23 +1,50 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Example Component</div>
+   <main>
+     <section id="cart">
+        <div class="container">
+           <h1>Winkelbierkrat</h1>
 
-                    <div class="panel-body">
-                        I'm an example component!
-                    </div>
-                </div>
-            </div>
+           <div class="panel panel-default">
+              <table class="table">
+                 <thead>
+                  <tr>
+                    <th>Bier</th>
+                    <th>Aantal</th>
+                    <th>Prijs</th>
+                  </tr>
+                 </thead>
+                 <tbody>
+                  <tr v-for="product in products">
+                    <td>{{product.name}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.price}}</td>
+                  </tr>
+                 </tbody>
+                 <tfoot>
+                    <tr>
+                       <td></td>
+                       <td align="right">Totaal:</td>
+                       <td>0</td>
+                   </tr>
+                </tfoot>
+              </table>
+           </div>
         </div>
-    </div>
+     </section>
+  </main>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+   import cart from '../store/cart.js';
+
+   export default {
+      data() {
+         return {
+            products: cart.state.products
+         }
+      },
+      mounted() {
+         console.log('Component mounted.')
+      }
+   }
 </script>
